@@ -1,10 +1,10 @@
 | Table of contents |
 |-----------------|
-| 1. Requirements |
-| 2. Installation |
-| 3. Config        |
-| 4. Usage        |
-| 5. Cache        |
+| [1. Requirements](#1-requirements) |
+| [2. Installation](#2-installation) |
+| [3. Config](#3-config) |
+| [4. Usage](#4-usage) |
+| [5. Cache](#5-cache) |
 
 ## 1. Requirements
 | | Version |
