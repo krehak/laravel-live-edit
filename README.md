@@ -39,7 +39,7 @@ php artisan migrate
 Config contains 3 simple options:
 
 ### auth
-This should be a callable function, which returns true/false value whenever to use this package. When true, your texts will be editable asynchronously. When false, none of the scripts and styles will be embeded so it is resource friendly.
+This should be a callable function, which returns a true/false value to enable/disabled this package. When true, your texts will be editable asynchronously. When false, none of the scripts and styles will be embedded so it is resource friendly.
 
 ### fallback_locale
 This package is multilingual. When your text has various translations and one of the translations is missing (for example `es`), this determines which language will be used as a default fallback.
@@ -48,15 +48,15 @@ This package is multilingual. When your text has various translations and one of
 This package uses Laravel's cache system, so your database will be saved against tons of requests (since you can have a lot of translatable text within a single page).
 
 ## 4. Usage
-_Note: LiveEdit will wrap your text inside the element (specified bellow). So, make sure it will not break your design. You can customize element's tag._
+_Note: LiveEdit will wrap your text inside the element (specified below). So, make sure it will not break your design. You can customize the element's tag._
 
-These parameters ar available:
+These parameters are available:
 ```php
 live_edit(key, default, tag)
 ```
 - **key** is your unique identifier (required)
 - **default** is your default text, when none is provided yet (default: null)
-- **tag** which element will wrap the text. It is possible to set tag to "null" but then it won't be usable for live editing on your site, but can be handy to use programmatically (default: 'span')
+- **tag** which element will wrap the text. It is possible to set the tag to "null" but then it won't be usable for live editing on your site, but can be handy to use programmatically (default: 'span')
 
 ### As a helper
 ```blade
@@ -87,12 +87,12 @@ LiveEdit::set('text_2', 'Change this text');
 ```
 
 ## 5. Cache
-Your can clear LiveEdit's cache easily with artisan command:
+You can clear LiveEdit's cache easily with the artisan command:
 ```shell script
 php artisan live-edit:flush
 ```
 
-Or programatically:
+Or programmatically:
 ```php
 use Krehak\LiveEdit\Helpers\LiveEdit;
 
