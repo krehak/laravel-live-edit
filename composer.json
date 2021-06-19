@@ -33,7 +33,6 @@
   "minimum-stability": "dev",
   "require": {
     "php": "^8.0",
-    "illuminate/support": "^8.47",
-    "illuminate/database": "^8.47"
+    "laravel/framework": "^8"
   }
 }
