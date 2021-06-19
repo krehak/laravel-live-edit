@@ -1,12 +1,19 @@
 {
   "name": "krehak/laravel-live-edit",
+  "description": "Edit your texts simple inside a running Laravel installation without the need to make custom administration",
+  "keywords": [
+    "laravel", "package", "live edit", "editor", "no admin"
+  ],
+  "version": "1.0.0",
+  "homepage": "https://github.com/krehak/laravel-live-edit",
+  "license": "MIT",
   "authors": [
     {
       "name": "Patrik Krehák",
-      "email": "patrik@krehak.com"
+      "email": "contact@ptk.sk",
+      "homepage": "https://krehak.com/"
     }
   ],
-  "description": "Laravel Live Edit",
   "autoload": {
     "psr-4": {
       "Krehak\\LiveEdit\\": "LiveEdit"
