@@ -79,7 +79,7 @@ use Krehak\LiveEdit\Helpers\LiveEdit;
 LiveEdit::get('text_2', 'Completely different text', null);
 ```
 
-You can also programmatically set the text. It will set your application's locale (`App::getLocale()`):
+You can also programmatically set the text. It will use your application's locale (`App::getLocale()`):
 ```php
 use Krehak\LiveEdit\Helpers\LiveEdit;
 
