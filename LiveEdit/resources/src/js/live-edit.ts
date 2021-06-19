@@ -24,4 +24,4 @@ const liveEditInit = () => {
     }
 };
 
-liveEditInit();
+window.onload = liveEditInit;

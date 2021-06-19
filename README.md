@@ -48,7 +48,7 @@ This package is multilingual. When your text has various translations and one of
 This package uses Laravel's cache system, so your database will be saved against tons of requests (since you can have a lot of translatable text within a single page).
 
 ## 4. Usage
-_Note: LiveEdit will wrap your text inside the element (specified below). So, make sure it will not break your design. You can customize the element's tag._
+_Note: LiveEdit will wrap your text inside the element (specified below, default <span>), which needs to be positioned relative and be block or inline-block. So, make sure it will not break your design. You can customize the element's tag name._
 
 These parameters are available:
 ```php
