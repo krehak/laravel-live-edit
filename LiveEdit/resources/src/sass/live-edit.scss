@@ -1,0 +1,272 @@
+$live_edit_gray: #707070;
+$live_edit_light_gray: #DEDEDE;
+$live_edit_dark_gray: #8E8E8E;
+$live_edit_cyan: #38B2AC;
+$live_edit_dark_cyan: #319795;
+
+*[data-live-edit] {
+    /*
+        Inherits: https://www.w3.org/TR/CSS2/text.html#lining-striking-props
+    */
+    text-decoration: inherit;
+    white-space: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+
+    &::after {
+        content: 'Click to edit';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        white-space: nowrap;
+        letter-spacing: normal;
+        word-spacing: normal;
+        background: rgba(black, 0.45);
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        transition: opacity 0.2s;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 99997;
+    }
+    &:hover::after {
+        opacity: 1;
+    }
+}
+
+.live-edit__modal {
+    display: none;
+    position: absolute;
+    width: 465px;
+    max-width: 95vw;
+    z-index: 99998;
+    font-family: Arial, sans-serif;
+    transition: opacity 0.15s;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 10px;
+        height: 0;
+        width: 0;
+        border: solid transparent;
+        border-width: 15px;
+        pointer-events: none;
+        filter: drop-shadow(0 0 transparent, 0 0 transparent, 0 4px 6px -1px rgba(black, 0.1),0 2px 4px -1px rgba(black, 0.06));
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        left: 11px;
+        height: 0;
+        width: 0;
+        border: solid transparent;
+        border-width: 14px;
+        pointer-events: none;
+    }
+    &.live-edit__position {
+        &-top {
+            padding-bottom: 15px;
+
+            &::before {
+                bottom: -14px;
+                border-top-color: $live_edit_gray;
+            }
+            &::after {
+                bottom: -12px;
+                border-top-color: white;
+            }
+        }
+        &-bottom {
+            padding-top: 15px;
+
+            &::before {
+                top: -14px;
+                border-bottom-color: $live_edit_gray;
+            }
+            &::after {
+                top: -12px;
+                border-bottom-color: white;
+            }
+        }
+        &-left {
+            &::before {
+                left: 10px;
+            }
+            &::after {
+                left: 11px;
+            }
+        }
+        &-right {
+            &::before {
+                left: auto;
+                right: 10px;
+            }
+            &::after {
+                left: auto;
+                right: 11px;
+            }
+        }
+        &-center {
+            padding: 0;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%);
+
+            &::before, &::after {
+                display: none;
+            }
+        }
+        &-dragged {
+            &::before, &::after {
+                display: none;
+            }
+        }
+        &-dragging {
+            opacity: 0.35;
+        }
+    }
+    &-wrapper {
+        position: relative;
+        padding: 10px;
+        background: white;
+        border: 1px solid $live_edit_gray;
+        border-radius: 5px;
+        box-shadow: 0 0 transparent, 0 0 transparent, 0 4px 6px -1px rgba(black, 0.1),0 2px 4px -1px rgba(black, 0.06);
+    }
+    &-handler {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        height: 25px;
+        z-index: 3;
+        margin-bottom: -10px;
+        cursor: move;
+    }
+    &-textarea {
+        width: 100%;
+        height: 135px;
+        margin: 0;
+        padding: 4px 5px;
+        outline: none;
+        background: transparent;
+        border: 1px solid $live_edit_light_gray;
+        border-radius: 3px;
+        resize: none;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        line-height: 16px;
+        color: $live_edit_dark_gray;
+        transition: border-color 0.3s;
+
+        &:hover {
+            border-color: darken($live_edit_light_gray, 10);
+        }
+        &:focus, &:active {
+            border-color: $live_edit_cyan;
+        }
+    }
+    &-controls {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 5px;
+    }
+    &-button-cancel,
+    &-button-save {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 75px;
+        height: 25px;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        letter-spacing: normal;
+        line-height: 1;
+        border-radius: 3px;
+        cursor: pointer;
+        border: 1px solid transparent;
+    }
+    &-button-cancel {
+        color: $live_edit_dark_cyan;
+        margin-right: 5px;
+        transition: border-color 0.3s;
+
+        &:hover {
+            border-color: $live_edit_dark_cyan;
+        }
+    }
+    &-button-save {
+        background: $live_edit_cyan;
+        border-color: $live_edit_dark_cyan;
+        color: white;
+        transition: background 0.3s, color 0.3s;
+
+        &:hover {
+            background: $live_edit_dark_cyan;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            height: 0;
+            width: 0;
+            box-sizing: border-box;
+            border: 0 solid white;
+            border-radius: 50%;
+            animation: live-edit__loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+    }
+    &-button-save-is-loading {
+        color: transparent;
+
+        &::after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    &.live-edit__modal-is-visible {
+        display: block;
+    }
+}
+
+@keyframes live-edit__loader-figure {
+    0% {
+        height: 0;
+        width: 0;
+    }
+    30% {
+        height: 2em;
+        width: 2em;
+        border-width: 1em;
+        opacity: 1;
+    }
+    100% {
+        height: 2em;
+        width: 2em;
+        border-width: 0;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "listEmittedFiles": false,
+    "outDir": "LiveEdit/resources/dist",
+    "declaration": true,
+    "declarationDir": "./LiveEdit/resources/src/js/definitions",
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": false,
+    "pretty": true,
+    "lib": [
+      "es2016",
+      "dom"
+    ]
+  },
+  "include": [
+      "./LiveEdit/resources/src/**/*"
+  ],
+  "exclude": [
+    "./LiveEdit/resources/dist/**/*"
+  ]
+}

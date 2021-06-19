@@ -1,0 +1,32 @@
+{
+  "name": "krehak/laravel-live-edit",
+  "authors": [
+    {
+      "name": "Patrik Krehák",
+      "email": "patrik@krehak.com"
+    }
+  ],
+  "description": "Laravel Live Edit",
+  "autoload": {
+    "psr-4": {
+      "Krehak\\LiveEdit\\": "LiveEdit"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Krehak\\LiveEdit\\LiveEditServiceProvider"
+      ]
+    },
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^8.0",
+    "illuminate/support": "^8.47",
+    "illuminate/database": "^8.47"
+  }
+}

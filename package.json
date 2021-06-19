@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "rimraf LiveEdit/resources/dist/* && rimraf .parcel-cache/* && cross-env NODE_ENV=development parcel LiveEdit/resources/src/index.html --out-dir LiveEdit/resources/dist/",
+        "production": "rimraf LiveEdit/resources/dist/* && rimraf .parcel-cache/* && cross-env NODE_ENV=production parcel build LiveEdit/resources/src/index.html --out-dir LiveEdit/resources/dist/ --no-source-maps && rm LiveEdit/resources/dist/index.html",
+        "clear-cache": "rimraf .parcel-cache/*"
+    },
+    "babel": {
+        "presets": [
+            "@babel/env"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "cross-env": "^7.0.3",
+        "parcel-bundler": "^1.12.4",
+        "rimraf": "^3.0.2",
+        "sass": "^1.30.0",
+        "typescript": "^4.1.3"
+    }
+}
